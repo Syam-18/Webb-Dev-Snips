@@ -1,0 +1,39 @@
+let counterHolder = document.getElementById("counterValue");
+
+function onIncrement() {
+    let previousCount = counterHolder.textContent;
+    let updatedCount = parseInt(previousCount) + 1;
+    counterHolder.textContent = updatedCount;
+    if (updatedCount > 0) {
+        counterHolder.style.color = "green";
+    } else if (updatedCount < 0) {
+        counterHolder.style.color = "red";
+    } else {
+        counterHolder.style.color = "black";
+    }
+}
+
+function onReset() {
+    let updatedCount = 0;
+    counterHolder.textContent = updatedCount;
+    if (updatedCount > 0) {
+        counterHolder.style.color = "green";
+    } else if (updatedCount < 0) {
+        counterHolder.style.color = "red";
+    } else {
+        counterHolder.style.color = "black";
+    }
+}
+
+function onDecrement() {
+    let previousCount = counterHolder.textContent;
+    let updatedCount = parseInt(previousCount) - 1;
+    counterHolder.textContent = updatedCount;
+    if (updatedCount > 0) {
+        counterHolder.style.color = "green";
+    } else if (updatedCount < 0) {
+        counterHolder.style.color = "red";
+    } else {
+        counterHolder.style.color = "black";
+    }
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        roboto: ["Roboto", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body>
+    <div class="min-h-screen bg-[#f1f5f8] flex flex-col justify-center items-center">
+        <h1 class="font-roboto text-5xl font-extrabold mb-4">Counter</h1>
+        <p class="text-[75px] font-black mb-4" id="counterValue">0</p>
+        <div>
+            <button id="buttonDec" onclick="onDecrement()" class="bg-[#f1f5f8] border-2 border-black rounded-lg m-2 px-2 py-1">
+                DECREASE
+            </button>
+            <button id="buttonReset" onclick="onReset()" class="bg-[#f1f5f8] border-2 border-black rounded-lg m-2 px-2 py-1">
+                RESET
+            </button>
+            <button id="buttonInc" onclick="onIncrement()" class="bg-[#f1f5f8] border-2 border-black rounded-lg m-2 px-2 py-1">
+                INCREASE
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>
