@@ -1,0 +1,104 @@
+let userInput = document.getElementById("userInput");
+let gameResult = document.getElementById("gameResult");
+let noOfTurns = document.getElementById("noOfTurns");
+let turnsContainer = document.getElementById("turnsContainer");
+let luckFactorContainer = document.getElementById("luckFactorContainer");
+let historyList = document.getElementById("historyList"); // Select history list
+let newGameButton = document.getElementById("newGameButton");
+
+let randomNum = Math.ceil(Math.random() * 100);
+console.log(randomNum);
+
+// Hide elements initially
+luckFactorContainer.style.display = "none";
+newGameButton.style.display = "none";
+
+function checkGuess() {
+    let guessedNum = parseInt(userInput.value);
+    let previousTurn = parseInt(noOfTurns.textContent);
+
+    // Hide Luck Factor & New Game button when a new guess is made
+    luckFactorContainer.style.display = "none";
+    newGameButton.style.display = "none";
+
+    noOfTurns.textContent = previousTurn + 1;
+
+    if (isNaN(guessedNum) || guessedNum < 1 || guessedNum > 100) {
+        gameResult.textContent = "Guess a number between 1 and 100!";
+        gameResult.style.backgroundColor = "red";
+        return;
+    }
+
+    if (guessedNum > randomNum) {
+        gameResult.textContent = "Too High, try again!";
+        gameResult.style.backgroundColor = "red";
+    } else if (guessedNum < randomNum) {
+        gameResult.textContent = "Too Low, try again!";
+        gameResult.style.backgroundColor = "red";
+    } else {
+        // Player guessed correctly!
+        noOfTurns.classList.add("text-[#256db9]");
+        gameResult.textContent = `Correct! You guessed it in ${noOfTurns.textContent} attempts.`;
+        turnsContainer.classList.add("hidden");
+        gameResult.style.backgroundColor = "#45d5aa";
+
+        let attempts = parseInt(noOfTurns.textContent);
+        noOfTurns.textContent = "0"; // Reset turns for next round
+
+        let luckMessage = getLuckFactor(attempts);
+        document.getElementById("luckFactor").textContent = luckMessage;
+
+        // Show Luck Factor container & New Game button
+        luckFactorContainer.style.display = "block";
+        newGameButton.style.display = "block";
+
+        // Store in history
+        addToHistory(guessedNum, attempts, luckMessage);
+    }
+}
+
+function getLuckFactor(attempts) {
+    if (attempts === 1) {
+        luckFactorContainer.classList.remove("animate-bounce");
+        return "🧙‍♂️ You're a Wizard! You can bend reality itself!";
+    } else if (attempts <= 3) {
+        return "🕵️‍♂️ You have the instincts of Sherlock Holmes!";
+    } else if (attempts <= 6) {
+        return "🔮 You're an Apprentice Mage! Keep honing your skills!";
+    } else if (attempts <= 10) {
+        return "🔥 You're a Fortune Teller... but your crystal ball is a bit foggy!";
+    } else {
+        return "🍀 Oops! You might need a lucky charm next time!";
+    }
+}
+
+// ✅ **Fix: Append History Correctly**
+function addToHistory(number, attempts, luck) {
+    let entry = document.createElement("div");
+    entry.classList = "bg-gray-800 text-white text-sm md:text-lg p-3 rounded-lg shadow-md w-full max-w-md mx-auto flex justify-between items-center";
+
+    entry.innerHTML = `
+        <p class="font-bold text-yellow-400">🎯 ${number}</p>
+        <p class="text-green-300">⏳ ${attempts} Turns</p>
+        <p class="italic">${luck}</p>
+    `;
+
+    // ✅ Append history correctly
+    historyList.appendChild(entry);
+}
+
+function resetGame() {
+    randomNum = Math.ceil(Math.random() * 100); // Generate new number
+    console.log("New Number:", randomNum);
+
+    // Reset UI
+    userInput.value = "";
+    gameResult.textContent = "";
+    gameResult.style.backgroundColor = "transparent";
+    turnsContainer.classList.remove("hidden");
+    noOfTurns.textContent = "0";
+
+    // Hide Luck Factor & New Game Button
+    luckFactorContainer.style.display = "none";
+    newGameButton.style.display = "none";
+}
