@@ -1,2 +1,2 @@
 # Front-End-Snippets
-some code snippets that can be easily modified and are reusable
+This Repository contains some code snippets that can be easily modified and are reusable
