@@ -1,0 +1,43 @@
+let acceptance = document.getElementById("acceptance");
+let rejection = document.getElementById("rejection");
+let options = document.getElementById("options");
+let queHeading = document.getElementById("queHeading");
+let queHeading2 = document.getElementById("queHeading2");
+let bgContainer = document.getElementById("bgContainer");
+let afterAcceptance = document.getElementById("afterAcceptance");
+let afterRejection2 = document.getElementById("afterRejection2");
+let confirmationPage = document.getElementById("confirmationPage");
+let oneLastChance = document.getElementById("oneLastChance");
+let isRejected = 0;
+
+
+function acceptedValentine() {
+    bgContainer.classList.add("hidden");
+    afterAcceptance.classList.remove("hidden");
+}
+
+function confirmationValentine() {
+    if (isRejected === 1) {
+        afterRejection2.classList.remove("hidden");
+    }
+    bgContainer.classList.add("hidden", "bg-gradient-to-l", "from-red-500", "via-black", "to-black");
+    confirmationPage.classList.remove("hidden");
+    queHeading.classList.add("hidden");
+    queHeading2.classList.add("hidden");
+    oneLastChance.classList.remove("hidden");
+    acceptance.textContent = "I don’t know why I hesitated… but now I’m sure. 💖 You’re the one I want, today and always. So here’s my final answer: YES, I’m yours! 💕";
+    options.classList.add("flex-col");
+    rejection.textContent = "Stop, I'm Sure, I don't want you to be my Valentine";
+    isRejected = 1;
+
+}
+
+function backToHome() {
+    bgContainer.classList.remove("hidden");
+    confirmationPage.classList.add("hidden");
+
+}
+
+function rejectedValentine() {
+    afterRejection2.classList.remove("hidden");
+}

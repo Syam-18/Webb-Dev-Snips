@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        roboto: ["Roboto", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Great+Vibes&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Ruge+Boogie&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
+</head>
+
+<body class="great-vibes-regular text-white text-center bg-[#f65ef1]">
+    <div class="hidden h-screen flex flex-col justify-center items-center" id="afterAcceptance" style="background: linear-gradient(330deg, #ff99cc, #ff3366);">
+        <div class=" flex text-[red] text-[80px] flex gap-40">
+            <i class="fa-solid fa-heart text-[#62eaea] blue-heart"></i>
+            <i class="fa-solid fa-heart red-heart"></i>
+        </div>
+        <div class="text-center">
+            <i class="fa-solid fa-heart text-[100px] text-[red] text-center floating-heart"></i>
+        </div>
+        <p class="font-[Monoton] text-[30px] text-[red] typewriter font-bold">Is this real?</p>
+        <p class="font-[Monoton] text-[30px] text-[red] typewriter2 font-bold"> Right now, this moment feels like magic</p>
+        <p class="font-[Monoton] text-[30px] text-[red] typewriter3 font-bold"> and I promise to cherish it forever</p>
+        <p class="font-[Monoton] text-[30px] text-[red] typewriter4 font-bold">You’ll never regret choosing me—because</p>
+        <p class="font-[Monoton] text-[30px] text-[red] typewriter5 font-bold">from this moment on, every heartbeat of mine belongs to you.</p>
+        <p class="text-[40px]"> 💖✨</p>
+
+    </div>
+    <div class="hidden h-screen flex flex-col justify-center items-center text-[40px]" style="background: linear-gradient(135deg, #3a0a12, #6b091a);" id="afterRejection2">
+        <p>Ouch! 💔 That hurts… but don’t worry, I’ll just go cry in a corner… 😭 Just kidding!<br> Hope you have a lovely day anyway!</p>
+        <p>It’s okay! 💖 Not everyone is meant to be, but hey, you still have an awesome place in my heart! <br>😊 Wishing you love and happiness anyway!</p>
+    </div>
+
+    <div id="confirmationPage" class="hidden h-screen flex flex-col justify-center items-center text-[40px] text-white">
+        <h1 class="text-black mb-8">Are you sure?</h1>
+        <div class="flex flex-col mb-3">
+            <button onclick="rejectedValentine()" class="mb-3 bg-red-400 rounded p-3">Yeah, I'm Sure, I don't want you to be my Valentine</button>
+            <button onclick="backToHome()" style="border:solid 2px white;" class="bg-[blue] ">Let me think</button>
+        </div>
+    </div>
+    <!-- musiccc -->
+    <div class="flex flex-col justify-center items-center bg-[#ede9e5] h-screen" id="bgContainer">
+        <h1 id="oneLastChance" class="hidden text-[30px] sixtyfour-convergence ">Think Hard! This is the Last Chance</h1>
+        <h1 class="text-[30px] sixtyfour-convergence typewriter" id="queHeading">Somewhere in this world, two eyes met, </h1>
+        <h1 class="text-[30px] sixtyfour-convergence mt-0 mb-8 typewriter2" id="queHeading2">and a love story began… Is this ours?</h1>
+        <div class="flex justify-center gap-4 text-[40px]" id="options">
+            <button class="bg-[#e853e3] p-3 rounded" id="acceptance" onclick="acceptedValentine()"> Let’s find out!</button>
+            <button class="bg-[#4f4c4f] p-3 rounded" id="rejection" onclick="confirmationValentine()">I don't think So</button>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
